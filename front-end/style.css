@@ -1,3 +1,99 @@
+/* Reset some basic elements */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+form {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Basic body styling */
 body {
+	font-family: Arial, sans-serif;
 	background-color: burlywood;
+	color: #333;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	padding: 20px;
+	overflow: hidden; /* Prevent scrolling */
+}
+
+/* Central image styling */
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+	margin-bottom: 20px;
+}
+
+/* Form container styling */
+form {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	max-width: 800px;
+	width: 100%;
+	max-height: 95vh; /* Set max height to 95% of the viewport height */
+	overflow-y: auto; /* Allow internal scrolling if content exceeds max height */
+	display: flex;
+	flex-wrap: wrap; /* Allow form elements to wrap into multiple columns */
+	gap: 20px; /* Add space between form elements */
+}
+
+/* Form element styling */
+label {
+	flex: 1 1 100%; /* Ensure labels take full width */
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+select,
+textarea,
+button {
+	flex: 1 1 48%; /* Form elements take up about half the width */
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-size: 16px;
+	margin-bottom: 20px;
+}
+
+/* Full width elements */
+textarea {
+	flex: 1 1 100%; /* Textarea takes full width */
+}
+
+/* Button specific styling */
+button {
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	margin-top: 20px;
+	flex: 1 1 100%; /* Button takes full width */
+}
+
+button:hover {
+	background-color: #0056b3;
+}
+
+/* Ensure additional comments span both columns */
+textarea {
+	flex: 1 1 100%;
+}
+
+/* Add some spacing between form groups */
+.form-group {
+	margin-bottom: 20px;
 }
