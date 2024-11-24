@@ -97,3 +97,15 @@ textarea {
 .form-group {
 	margin-bottom: 20px;
 }
+/* Media query for smaller screens */
+@media (max-width: 1200px) {
+    body {
+        display: grid;
+		grid-template-rows: 2;
+    }
+	img {
+		max-width: 95%;
+		margin-top: -20%;
+		padding-bottom: 25%;
+	}
+}
