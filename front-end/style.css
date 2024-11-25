@@ -25,7 +25,6 @@ body {
 	align-items: center;
 	height: 100vh;
 	padding: 20px;
-	overflow: hidden; /* Prevent scrolling */
 }
 
 /* Central image styling */
@@ -99,10 +98,10 @@ textarea {
 }
 /* Media query for smaller screens */
 @media (max-width: 1200px) {
-    body {
-        display: grid;
+	body {
+		display: grid;
 		grid-template-rows: 2;
-    }
+	}
 	img {
 		max-width: 95%;
 		margin-top: -20%;
