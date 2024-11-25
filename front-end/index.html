@@ -99,6 +99,33 @@
 
 			// Initialize room numbers on page load
 			window.onload = updateRoomNumbers;
+			
+			document.getElementById("comfortForm").addEventListener("submit", async function (event) {
+				event.preventDefault();
+
+				const formData = new FormData(this);
+				const data = {};
+				formData.forEach((value, key) => (data[key] = value));
+
+				try {
+					const response = await fetch("http://localhost:3000/submit", {
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify(data),
+					});
+
+					if (response.ok) {
+						alert("Mercikes voor het invullen.");
+					} else {
+						alert("Er is fout gebeurt");
+					}
+				} catch (error) {
+					console.error("Error:", error);
+					alert("Error submitting survey");
+				}
+			});
 		</script>
 	</body>
 </html>
