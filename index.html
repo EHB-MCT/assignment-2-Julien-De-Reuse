@@ -11,6 +11,7 @@
 		<form id="comfortForm">
 			<label for="temperature">Temperature Comfort (1-5):</label>
 			<select id="temperature" name="temperature" required>
+				<option value="">- Choose an option -</option>
 				<option value="1">1 - Very Cold</option>
 				<option value="2">2 - Cold</option>
 				<option value="3">3 - Neutral</option>
@@ -20,6 +21,7 @@
 
 			<label for="airQuality">Air Quality (1-5):</label>
 			<select id="airQuality" name="airQuality" required>
+				<option value="">- Choose an option -</option>
 				<option value="1">1 - Very Poor</option>
 				<option value="2">2 - Poor</option>
 				<option value="3">3 - Neutral</option>
@@ -29,6 +31,7 @@
 
 			<label for="noise">Noise Levels (1-5):</label>
 			<select id="noise" name="noise" required>
+				<option value="">- Choose an option -</option>
 				<option value="1">1 - Very Noisy</option>
 				<option value="2">2 - Noisy</option>
 				<option value="3">3 - Neutral</option>
@@ -38,6 +41,7 @@
 
 			<label for="seating">Seating Comfort (1-5):</label>
 			<select id="seating" name="seating" required>
+				<option value="">- Choose an option -</option>
 				<option value="1">1 - Very Uncomfortable</option>
 				<option value="2">2 - Uncomfortable</option>
 				<option value="3">3 - Neutral</option>
@@ -47,6 +51,7 @@
 
 			<label for="PeopleQuantity">People Quantity (1-5):</label>
 			<select id="PeopleQuantity" name="PeopleQuantity" required>
+				<option value="">- Choose an option -</option>
 				<option value="1">1 - Feels Empty</option>
 				<option value="2">2 - Feels Sparse</option>
 				<option value="3">3 - Feels Balanced</option>
@@ -56,6 +61,7 @@
 
 			<label for="roomType">Room Type:</label>
 			<select id="roomType" name="roomType" required onchange="updateRoomNumbers()">
+				<option value="">- Choose an option -</option>
 				<option value="classroom">Classroom</option>
 				<option value="auditorium">Auditorium</option>
 				<option value="else">Somewhere else</option>
@@ -63,7 +69,7 @@
 
 			<label for="roomNumber">Room Number:</label>
 			<select id="roomNumber" name="roomNumber" required>
-				<!-- Options will be populated by JavaScript -->
+				<!-- Options are based on the roomType / script.js -->
 			</select>
 
 			<label for="comments">Additional Comments (Optional):</label>
