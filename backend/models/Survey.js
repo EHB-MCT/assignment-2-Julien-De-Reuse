@@ -9,7 +9,7 @@ const surveySchema = new mongoose.Schema({
     roomType: String,
     roomNumber: String,
     comments: String,
-    submitTime: Date,
+    email: String,
 });
 
 module.exports = mongoose.model('Survey', surveySchema);

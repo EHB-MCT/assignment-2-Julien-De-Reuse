@@ -7,9 +7,14 @@ function updateRoomNumbers() {
 
 	let options = [];
 	if (roomType === "classroom") {
-		options = ["B046", "101", "102a", "102b", "102c", "108", "103", "113", "119", "120", "123 (Expertlab)", "201", "205", "206", "208a", "not in the list"];
+		options = [
+			"B046", "101", "102a", "102b", "102c", "108", "103", "113", "119",
+			"120", "123 (Expertlab)", "201", "205", "206", "208a", "not in the list"
+		];
 	} else if (roomType === "auditorium") {
-		options = ["Aula 1", "Aula 2", "Aula 3", "Aula 4", "Aula 5", "Aula 6", "Aula 7", "not in the list"];
+		options = [
+			"Aula 1", "Aula 2", "Aula 3", "Aula 4", "Aula 5", "Aula 6", "Aula 7", "not in the list"
+		];
 	} else if (roomType === "else") {
 		options = ["Fablab", "MediaLab", "not in the list"];
 	}
@@ -23,14 +28,34 @@ function updateRoomNumbers() {
 }
 
 // Initialize room numbers on page load
-window.onload = updateRoomNumbers;
+window.onload = function() {
+	updateRoomNumbers();
+	
+	// Add event listener for roomType changes
+	document.getElementById("roomType").addEventListener("change", updateRoomNumbers);
+};
+
+let userEmail = "";
+
+document.getElementById("login-form").addEventListener("submit", function (event) {
+	event.preventDefault();
+	const emailInput = document.getElementById("email");
+	userEmail = emailInput.value;
+	console.log("User email:", userEmail); // Debug log
+	document.getElementById("login-container").style.display = "none";
+	document.getElementById("form-container").style.display = "block";
+});
 
 document.getElementById("comfortForm").addEventListener("submit", async function (event) {
 	event.preventDefault();
 
 	const formData = new FormData(this);
 	const data = {};
-	formData.forEach((value, key) => (data[key] = value));
+	formData.forEach((value, key) => {
+		data[key] = value;
+	});
+	data.email = userEmail; // Add email to form data
+	console.log("Form data to be submitted:", data); // Debug log
 
 	try {
 		const response = await fetch("https://assignment-2-julien-de-reuse-dev5.onrender.com/submit", {
