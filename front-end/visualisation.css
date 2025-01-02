@@ -1,0 +1,30 @@
+svg {
+    width: auto;
+    height: 100%;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: burlywood;
+    color: #333;
+    display: grid;
+    justify-content: center;
+    height: 96vh;
+  }
+  
+  .container {
+    position: relative;
+    text-align: center; /* Center the content within the container */
+  }
+  
+  img {
+    width: 15%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Center the image horizontally */
+  }
+  
+  .buttons {
+    left: 50%;
+    transform: translateX(-50%); /* Center the buttons horizontally */
+  }
