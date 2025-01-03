@@ -8,12 +8,12 @@ function updateRoomNumbers() {
 	let options = [];
 	if (roomType === "classroom") {
 		options = [
-			"B046", "101", "102a", "102b", "102c", "108", "103", "113", "119",
-			"120", "123 (Expertlab)", "201", "205", "206", "208a", "not in the list"
+			"B046", "B101", "B102a", "B102b-c", "B108", "B103", "B113", "B119",
+			"B120", "Expertlab", "B201", "B205", "B206", "B208a", "not in the list"
 		];
 	} else if (roomType === "auditorium") {
 		options = [
-			"Aula 1", "Aula 2", "Aula 3", "Aula 4", "Aula 5", "Aula 6", "Aula 7", "not in the list"
+			"Aula 1", "Aula 2", "Aula 3", "Aula 4", "Aula 5", "Aula 6", "Aula 7", "Aula 8","not in the list"
 		];
 	} else if (roomType === "else") {
 		options = ["Fablab", "MediaLab", "not in the list"];
