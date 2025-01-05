@@ -223,7 +223,7 @@ app.get("/average-people", async (req, res) => {
 		const roomPeopleQuantity = {};
 		data.forEach((survey) => {
 			const room = survey.roomNumber;
-			const peopleQuantity = parseFloat(survey.PeopleQuantity);
+			const peopleQuantity = parseFloat(survey.peopleQuantity);
 
 			if (room && !isNaN(peopleQuantity)) {
 				if (!roomPeopleQuantity[room]) {
@@ -248,6 +248,46 @@ app.get("/average-people", async (req, res) => {
 	} finally {
 		await client.close();
 	}
+});
+
+app.get("/average-peopleQuantity", async (req, res) => {
+    try {
+        await client.connect();
+        const database = client.db("DEV5-Challenge_2");
+        const surveys = database.collection("data");
+
+        const data = await surveys.find({}).toArray();
+        console.log("Retrieved data:", data); // Log the retrieved data
+
+        // Calculate average people quantity per room
+        const roomPeopleQuantity = {};
+        data.forEach((survey) => {
+            const room = survey.roomNumber;
+            const peopleQuantity = parseFloat(survey.peopleQuantity);
+
+            if (room && !isNaN(peopleQuantity)) {
+                if (!roomPeopleQuantity[room]) {
+                    roomPeopleQuantity[room] = { total: 0, count: 0 };
+                }
+                roomPeopleQuantity[room].total += peopleQuantity;
+                roomPeopleQuantity[room].count += 1;
+            }
+        });
+
+        const averagePeopleQuantity = {};
+        for (const room in roomPeopleQuantity) {
+            averagePeopleQuantity[room] = roomPeopleQuantity[room].total / roomPeopleQuantity[room].count;
+        }
+
+        console.log("Average people quantity:", averagePeopleQuantity); // Log the average people quantity
+
+        res.status(200).json(averagePeopleQuantity);
+    } catch (error) {
+        console.error("Error retrieving data:", error);
+        res.status(500).send("Server error");
+    } finally {
+        await client.close();
+    }
 });
 
 app.listen(port, () => {

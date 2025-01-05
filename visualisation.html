@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Visualisation Room Comfort Survey</title>
 		<!-- <link rel="stylesheet" href="./front-end/style.css" />-->
+		<script src="./front-end/visualisation.js"></script>
 		<link rel="stylesheet" href="./front-end/visualisation.css" />
 	</head>
 	<body>
@@ -17,148 +18,74 @@
 				<label> <input type="radio" name="color" value="temperature" /> Temperature </label>
 				<label> <input type="radio" name="color" value="airQuality" /> Air quality </label>
 				<label> <input type="radio" name="color" value="noise" /> Noise </label>
-				<label> <input type="radio" name="color" value="seating" /> seating </label>
+				<label> <input type="radio" name="color" value="seating" /> Seating quality</label>
 				<label> <input type="radio" name="color" value="peopleQuantity" /> People quantity </label>
 			</div>
+		</div>
+		<div class="legend">
+			<h2>Legend</h2>
+			<ul>
+				<li><span style="background-color: red"></span> High / Bad</li>
+				<li><span style="background-color: green"></span> Medium / Neutral</li>
+				<li><span style="background-color: blue"></span> Low / Good</li>
+				<li><span style="background-color: black"></span> No Data</li>
+			</ul>
 		</div>
 		<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1601.3 901.11">
 			<defs>
 				<style>
-					.Aula1 {
-						fill: #ffffff;
-					}
-
-					.Aula2 {
-						fill: #1b86c8;
-					}
-
-					.Aula3 {
-						fill: #184520;
-					}
-
-					.Aula4 {
-						fill: #253d95;
-					}
-
-					.Aula5 {
-						fill: #0c733b;
-					}
-
-					.Aula6 {
-						fill: #58b947;
-					}
-
-					.Aula7 {
-						fill: #74c044;
-					}
-
-					.Aula8 {
-						fill: #6c4d9f;
-					}
-
-					.B046 {
-						fill: #453d16;
-					}
-
+					.Aula1,
+					.Aula2,
+					.Aula3,
+					.Aula4,
+					.Aula5,
+					.Aula6,
+					.Aula7,
+					.Aula8,
+					.B046,
+					.B101,
+					.B102a,
+					.B102b-c,
+					.B103,
+					.B108,
+					.B113,
+					.B119,
+					.B120,
+					.B201,
+					.B205,
+					.B206,
+					.B208a,
+					.Fablab,
+					.PodcastRuimte,
+					.Chillroom,
+					.MediaLab,
+					.Expertlab,
+					.B105,
 					.Onbekend {
 						fill: none;
 						stroke: #231f20;
-
-					}
-
-					.PodcastRuimte {
-						fill: #9f8bc2;
-					}
-
-					.Chillroom {
-						fill: #045c30;
-					}
-
-					.MediaLab {
-						fill: #0fa24a;
-					}
-
-					.Expertlab {
-						fill: #ddd0d0;
 					}
 
 					.text {
 						fill: #231f20;
-						font-family: MyriadPro-Regular, "Myriad Pro";
+						font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 20px; font-weight: 700;
 						font-size: 32.13px;
-					}
-
-					.B105 {
-						fill: #0eb791;
 					}
 
 					.cls-37 {
 						letter-spacing: 0em;
 					}
 
-					.B101 {
-						fill: #e55d25;
-					}
-
-					.B102a {
-						fill: #ef3a25;
-					}
-
-					.B102b-c {
-						fill: #d25959;
-					}
-
-					.B103 {
-						fill: #30b44a;
-					}
-
-					.B108 {
-						fill: #914771;
-					}
-
-					.B113 {
-						fill: #21b24b;
-					}
-
-					.B119 {
-						fill: #9f8bc2;
-					}
-
-					.B120 {
-						fill: #62b846;
-					}
-
-					.B201 {
-						fill: #184520;
-					}
-
-					.B205 {
-						fill: #45b649;
-					}
-
-					.B206 {
-						fill: #84c880;
-					}
-
 					.Contour {
 						fill: none;
 						stroke: #231f20;
 					}
-
-					.B208a {
-						fill: #0fa24a;
-					}
-
-					.Fablab {
-						fill: #0fa24a;
-					}
-
 				</style>
 			</defs>
-			<rect id="Aula2" data-name="Aula 2" class="Aula2" x="98.76" y="582.57" width="59.02" height="65.19" />
-			<rect id="Aula1" data-name="Aula 1" class="Aula1" x="83.7" y="657.99" width="71.72" height="61.71" />
-			<rect id="Aula3" data-name="Aula 3" class="Aula3" x="206.97" y="580.44" width="59.02" height="65.19" transform="translate(472.97 1226.06) rotate(180)" />
-			<rect id="Aula4" data-name="Aula 4" class="Aula4" x="209.34" y="655.85" width="71.72" height="61.71" transform="translate(490.4 1373.42) rotate(180)" />
+			<rect id="Aula_2" data-name="Aula2" class="Aula2" x="98.76" y="582.57" width="59.02" height="65.19" />
+			<rect id="Aula_1" data-name="Aula1" class="Aula1" x="83.7" y="657.99" width="71.72" height="61.71" />
+			<rect id="Aula_3" data-name="Aula3" class="Aula3" x="206.97" y="580.44" width="59.02" height="65.19" transform="translate(472.97 1226.06) rotate(180)" />
+			<rect id="Aula_4" data-name="Aula4" class="Aula4" x="209.34" y="655.85" width="71.72" height="61.71" transform="translate(490.4 1373.42) rotate(180)" />
 			<polygon id="B046" data-name="B046" class="B046" points="421.15 526.4 296.27 526.4 296.27 561.6 297.29 561.6 297.29 575.56 327.79 575.56 327.79 561.6 421.15 561.6 421.15 526.4" />
 			<rect id="Onbekend" class="Onbekend" x="289.45" y="461.17" width="37.15" height="51.37" />
 			<rect id="Onbekend" data-name="Onbekend" class="Onbekend" x="375.39" y="466.38" width="45.36" height="44.17" />
@@ -168,10 +95,10 @@
 			<rect id="Onbekend" data-name="Onbekend" class="Onbekend" x="536.06" y="640.31" width="73.59" height="83.23" />
 			<rect id="Onbekend" data-name="Onbekend" class="Onbekend" x="532.23" y="582.35" width="71.98" height="55.36" />
 			<rect id="MediaLab" class="MediaLab" x="513.48" y="488.58" width="88.23" height="63.75" />
-			<rect id="Aula5" data-name="Aula 5" class="Aula5" x="792.48" y="641.26" width="82.22" height="83.07" />
-			<rect id="Aula6" data-name="Aula 6" class="Aula6" x="814.89" y="570.02" width="67.28" height="67.28" />
-			<rect id="Aula8" data-name="Aula 8" class="Aula8" x="938.86" y="572.99" width="66.21" height="66.18" />
-			<rect id="Aula7" data-name="Aula 7" class="Aula7" x="942.01" y="645.42" width="69.47" height="69.47" />
+			<rect id="Aula_5" data-name="Aula5" class="Aula5" x="792.48" y="641.26" width="82.22" height="83.07" />
+			<rect id="Aula_6" data-name="Aula6" class="Aula6" x="814.89" y="570.02" width="67.28" height="67.28" />
+			<rect id="Aula_8" data-name="Aula8" class="Aula8" x="938.86" y="572.99" width="66.21" height="66.18" />
+			<rect id="Aula_7" data-name="Aula7" class="Aula7" x="942.01" y="645.42" width="69.47" height="69.47" />
 			<rect id="B103" data-name="B103" class="B103" x="1247.97" y="462.5" width="55.71" height="87.29" />
 			<rect id="B113" data-name="B113" class="B113" x="1185.82" y="487.82" width="48.19" height="32.73" />
 			<rect id="B119" data-name="B119" class="B119" x="1096.52" y="510.32" width="71.02" height="37.18" />
