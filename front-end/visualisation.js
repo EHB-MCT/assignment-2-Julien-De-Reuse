@@ -4,19 +4,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	radios.forEach((radio) => {
 		radio.addEventListener("change", async () => {
-			const dataType = radio.value;
-			console.log(`Selected data type: ${dataType}`); // Log the selected data type
+			console.log(`Selected data type: ${radio.value}`); // Log the selected data type
 
 			try {
-				const response = await fetch(`http://localhost:3000/average-${dataType}`);
-				console.log(`Fetching data from http://localhost:3000/average-${dataType}`); // Log the fetch request
+				const response = await fetch("https://assignment-2-julien-de-reuse-dev5.onrender.com/submit");
+				console.log("Fetching data from https://assignment-2-julien-de-reuse-dev5.onrender.com/submit"); // Log the fetch request
 
 				if (!response.ok) {
 					throw new Error(`HTTP error! status: ${response.status}`);
 				}
 
 				const data = await response.json();
-				console.log(`Fetched data for ${dataType}:`, data); // Log the fetched data
+				console.log("Fetched data:", data); // Log the fetched data
 
 				svgElements.forEach((element) => {
 					let roomNumber = element.getAttribute("id");
@@ -37,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
 					}
 				});
 			} catch (error) {
-				console.error(`Error fetching data for ${dataType}:`, error);
+				console.error("Error fetching data:", error);
 			}
 		});
 	});
